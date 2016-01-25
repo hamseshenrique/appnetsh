@@ -2,6 +2,7 @@ package br.com.netshoes.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
@@ -64,6 +65,8 @@ public class ProdutoAdapter extends RecyclerView.Adapter<ProdutoViewHolder>{
 
         if(!TextUtils.isEmpty(product.getPrice().getOriginal_price())){
             holder.getTextOriginalPreco().setText("DE : "+product.getPrice().getOriginal_price());
+            holder.getTextOriginalPreco().setPaintFlags(
+                    holder.getTextOriginalPreco().getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
         }
 
         holder.getTextPreco().setText("POR : " + product.getPrice().getActual_price());

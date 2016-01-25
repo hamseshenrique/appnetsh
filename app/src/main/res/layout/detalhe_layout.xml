@@ -6,37 +6,52 @@
     android:layout_height="wrap_content"
     android:background="#e5e1e1"
     card_view:cardElevation="3dp">
-
-    <LinearLayout
-        android:orientation="vertical"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="top">
-
-        <ImageView
-            android:id="@+id/imageDetProduct"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-
-        <TextView
-            android:id="@+id/nameProduct"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:id="@+id/linearDetalhe"
+            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            style="@style/styleTextNameProduto"/>
+            android:layout_gravity="top">
 
-        <View style="@style/separator"
-            android:elevation="3dp"/>
+            <ImageView
+                android:id="@+id/imageDetProduct"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
 
-        <TextView
+            <TextView
+                android:id="@+id/nameProduct"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/styleTextNameProduto"/>
+
+            <View style="@style/separator"
+                android:elevation="3dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/styleTextDesc"
+                android:text="@string/descricao"/>
+
+            <TextView
+                android:id="@+id/descricao"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/styleTextDesc"/>
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            style="@style/styleTextDesc"
-            android:text="@string/descricao"/>
-
-        <TextView
-            android:id="@+id/descricao"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            style="@style/styleTextDesc"/>
-    </LinearLayout>
+            android:layout_gravity="center_vertical">
+            <ImageView
+                android:id="@+id/zoomImage"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone"/>
+        </LinearLayout>
+    </FrameLayout>
 </android.support.v7.widget.CardView>

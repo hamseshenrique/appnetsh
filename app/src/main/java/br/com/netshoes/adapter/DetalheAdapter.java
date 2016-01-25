@@ -1,9 +1,12 @@
 package br.com.netshoes.adapter;
 
+import android.graphics.Paint;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
@@ -46,9 +49,34 @@ public class DetalheAdapter extends RecyclerView.Adapter<DetalheViewHolder>{
                 .placeholder(android.R.drawable.ic_popup_sync)
                 .into(holder.getImageDetProduct());
 
+        final ImageView zooImage = holder.getZoomImage();
+        final LinearLayout linearLayout = holder.getLinearDetalhe();
+
+        Picasso.with(holder.itemView.getContext()).load("http:" + value.getGallery().get(0).getItems().get(0).getZoom())
+                .error(android.R.drawable.stat_notify_error)
+                .placeholder(android.R.drawable.ic_popup_sync)
+                .into(zooImage);
+
+        holder.getImageDetProduct().setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                linearLayout.setVisibility(View.GONE);
+                zooImage.setVisibility(View.VISIBLE);
+            }
+        });
+        zooImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                zooImage.setVisibility(View.GONE);
+                linearLayout.setVisibility(View.VISIBLE);
+
+            }
+        });
+
         holder.getNameProduct().setText(value.getName());
         holder.getDescricao().setText(value.getDescription());
         precoAtual.setText(value.getPrice().getActual_price());
+        precoOriginal.setPaintFlags(precoOriginal.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
         precoOriginal.setText(value.getPrice().getOriginal_price());
     }
 

@@ -23,13 +23,13 @@
     </android.support.design.widget.AppBarLayout>
 
     <include layout="@layout/content_detalhe" />
+    
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        android:elevation="3dp"
-        android:background="@color/detalhePreco">
+        style="@style/Widget.Design.Snackbar">
 
         <TextView
             android:id="@+id/precoOriginal"
@@ -39,6 +39,7 @@
         <TextView
             android:id="@+id/precoAtual"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            style="@style/styleTextDetPrecoAtual"/>
     </LinearLayout>
 </android.support.design.widget.CoordinatorLayout>

@@ -98,6 +98,7 @@ public class ProdutoActivity extends AppCompatActivity {
             snackbar.setActionTextColor(Color.RED);
 
             View sbView = snackbar.getView();
+
             TextView textView = (TextView) sbView.findViewById(android.support.design.R.id.snackbar_text);
             textView.setTextSize(12);
 
